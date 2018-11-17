@@ -1,0 +1,34 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Drinkers Directory</h1>
+      <p-dropdown *ngIf="cityOptions" [ngClass]="{ 'no-option-selected': selectedCity === undefined || selectedCity === null }"
+      placeholder="Filter by city" [options]="cityOptions" [(ngModel)]="selectedCity" showClear="true"
+      (onChange)="filterCities($event.value)"></p-dropdown>
+    </div>
+  </div>
+  
+  <div class="container">
+    <h2>Transactions</h2>
+    <p-table [value]="drinkers">
+      <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Phone</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-drinker>
+          <tr>
+            <td>
+              <a routerLink="/drinkers/{{drinker.drinker}}">
+                {{ drinker.drinker }}
+              </a> 
+            </td>
+            <td>{{ drinker.street }}</td>
+            <td>{{ drinker.city }}</td>
+            <td>{{ drinker.phone }}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+  </div>
