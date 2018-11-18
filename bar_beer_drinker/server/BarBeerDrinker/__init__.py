@@ -242,3 +242,143 @@ def get_most_popular_times_beer(name):
         return make_response(str(e), 400)
     except Exception as e:
         return make_response(str(e), 500)
+
+@app.route('/api/testQuery/<query>', methods=["GET"])
+def testQuery(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.testQuery(query)
+        return jsonify(s)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/beerUpdate/<query>', methods=["GET"])
+def beerUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryBeerModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/barUpdate/<query>', methods=["GET"])
+def barUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryBarModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/drinkerUpdate/<query>', methods=["GET"])
+def drinkerUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryDrinkerModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/sellUpdate/<query>', methods=["GET"])
+def sellUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.trySellModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/likeUpdate/<query>', methods=["GET"])
+def likeUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryLikeModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/frequentUpdate/<query>', methods=["GET"])
+def frequentUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryFrequentModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/totalUpdate/<query>', methods=["GET"])
+def totalUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryTotalModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/tranUpdate/<query>', methods=["GET"])
+def tranUpdate(query):
+    print(query)
+    try:
+        if query is None:
+            raise ValueError('No query.')
+        s = database.tryTranModify(query)
+        return "true"
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/patternone', methods=["GET"])
+def patternOne():
+    try:
+        s = database.patternOne()
+        return jsonify(s)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+@app.route('/api/patterntwo', methods=["GET"])
+def patternTwo():
+    try:
+        s = database.patternTwo()
+        return jsonify(s)
+    except ValueError as e:
+        return make_response(str(e), 400)
+    except Exception as e:
+        return make_response(str(e), 500)
+
+
+

@@ -1,3 +1,7 @@
+<style>
+    input{width: 500px;margin-right: 10px;}
+</style>
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Modify</h1>
@@ -6,11 +10,52 @@
 </div>
 
 <div class="container">
-    <form>
-        Query:<br>
-        <input type="text" name="firstname"><br>
-        Query:<br>
-        <input type="text" name="lastname">
-      </form>
+        Beer Query:<br>
+        <input type="text" [(ngModel)]="inputText">
+        <button (click)="onClickBeers()">Send query</button>
+        <br>
+        <br>
+
+        Bar Query:<br>
+        <input type="text" [(ngModel)]="inputText2">
+        <button (click)="onClickBars()">Send query</button>
+        <br>
+        <br>
+
+        Drinker Query:<br>
+        <input type="text" [(ngModel)]="inputText3">
+        <button (click)="onClickDrinkers()">Send query</button>
+        <br>
+        <br>
+
+        Sell Query:<br>
+        <input type="text" [(ngModel)]="inputText4">
+        <button (click)="onClickSells()">Send query</button>
+        <br>
+        <br>
+
+        Frequent Query:<br>
+        <input type="text" [(ngModel)]="inputText5">
+        <button (click)="onClickFrequents()">Send query</button>
+        <br>
+        <br>
+
+        Like Query:<br>
+        <input type="text" [(ngModel)]="inputText6">
+        <button (click)="onClickLikes()">Send query</button>
+        <br>
+        <br>
+
+        Total Query:<br>
+        <input type="text" [(ngModel)]="inputText7">
+        <button (click)="onClickTotals()">Send query</button>
+        <br>
+        <br>
+
+        Transaction Query:<br>
+        <input type="text" [(ngModel)]="inputText8">
+        <button (click)="onClickTrans()">Send query</button>
+        <br>
+        <br>
 
 </div>

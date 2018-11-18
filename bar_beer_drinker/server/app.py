@@ -1,4 +1,4 @@
 from BarBeerDrinker import app
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3306)
+    app.run(host = '0.0.0.0', debug=True, port=environ.get("PORT", 3306))

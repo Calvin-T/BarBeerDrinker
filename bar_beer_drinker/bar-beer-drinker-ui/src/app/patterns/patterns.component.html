@@ -1,0 +1,64 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Patterns</h1>
+      <p class="lead">The required patterns</p>
+    </div>
+</div>
+
+<div class="container">
+    <div>
+       <h2>Frequents Pattern</h2> 
+       <p>select frequents.drinker as drinker, frequents.bar as bar, drinkers.city as drinkerCity, bars.City as barCity 
+          from frequents, drinkers, bars 
+          where frequents.drinker = drinkers.drinker AND frequents.bar = bars.BarName AND drinkers.city = bars.city</p>
+    </div>
+    <p-table [value]="patternOneData" sortMode="multiple" sortField="price">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Drinker</th>
+            <th>Bar</th>
+            <th>Drinker City</th>
+            <th>Bar City</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+          <tr>
+            <td>{{ data.drinker }}</td>
+            <td>{{ data.bar }}</td>
+            <td>{{ data.drinkerCity }}</td>
+            <td>{{ data.barCity }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    <br>
+    <br>
+</div>
+<div class="container">
+    <div>
+       <h2>Time Pattern</h2> 
+       <p>select id, ttime, open, close 
+          from transactions, bars 
+          where transactions.ttime > bars.open AND transactions.ttime < bars.close and transactions.bar = bars.BarName 
+          group by id</p>
+    </div>
+    <p-table [value]="patternTwoData" sortMode="multiple" sortField="price">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Time of transaction</th>
+            <th>Open hour</th>
+            <th>Close hour</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+          <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.ttime }}</td>
+            <td>{{ data.open }}</td>
+            <td>{{ data.close }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    <br>
+    <br>
+</div>

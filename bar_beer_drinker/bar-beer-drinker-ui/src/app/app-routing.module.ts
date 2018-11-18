@@ -9,10 +9,17 @@ import { InsightComponent } from './insight/insight.component';
 import { DrinkerDetailsComponent } from './drinker-details/drinker-details.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
 import { ModificationComponent } from './modification/modification.component';
+import { QueryInterfaceComponent } from './query-interface/query-interface.component';
+import { PatternsComponent } from './patterns/patterns.component';
 
 const routes: Routes = [
   {
     path:'',
+    pathMatch: 'full',
+    redirectTo: 'bars'
+  },
+  {
+    path: 'static',
     pathMatch: 'full',
     redirectTo: 'bars'
   },
@@ -55,6 +62,16 @@ const routes: Routes = [
     path: 'modify',
     pathMatch: 'full',
     component: ModificationComponent
+  },
+  {
+    path: 'query-interface',
+    pathMatch: 'full',
+    component: QueryInterfaceComponent
+  },
+  {
+    path: 'patterns',
+    pathMatch: 'full',
+    component: PatternsComponent
   }
 
 ];

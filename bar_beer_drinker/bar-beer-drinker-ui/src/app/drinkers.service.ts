@@ -14,29 +14,31 @@ export interface Drinker {
 })
 export class DrinkersService {
 
+  url = 'https://c274683.herokuapp.com'
+
   constructor(public http: HttpClient) { }
 
   getDrinkers(){
-    return this.http.get<any[]>('/api/drinkers')
+    return this.http.get<any[]>(this.url + '/api/drinkers')
   }
 
   getDrinker(name: string){
-    return this.http.get<Drinker>('/api/drinkers/' + name)
+    return this.http.get<Drinker>(this.url +'/api/drinkers/' + name)
   }
 
   getCities(city?: string): any{
     if(city){
-      return this.http.get<string>('/api/cities/'+city)
+      return this.http.get<string>(this.url +'/api/cities/'+city)
     }
-    return this.http.get<string[]>('/api/cities')
+    return this.http.get<string[]>(this.url +'/api/cities')
   }
 
   getOrderedMost(name: string) {
-    return this.http.get<any[]>('/api/drinkers/' + name + '/orders_most')
+    return this.http.get<any[]>(this.url +'/api/drinkers/' + name + '/orders_most')
   }
 
   getTransactions(name: string){
-    return this.http.get<any[]>('/api/drinkers/' + name + '/transactions')
+    return this.http.get<any[]>(this.url +'/api/drinkers/' + name + '/transactions')
   }
 
 }

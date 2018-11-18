@@ -18,6 +18,8 @@ import { InsightComponent } from './insight/insight.component';
 import { DrinkerDetailsComponent } from './drinker-details/drinker-details.component';
 import { DrinkersComponent } from './drinkers/drinkers.component';
 import { ModificationComponent } from './modification/modification.component';
+import { QueryInterfaceComponent } from './query-interface/query-interface.component';
+import { PatternsComponent } from './patterns/patterns.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ModificationComponent } from './modification/modification.component';
     DrinkerDetailsComponent,
     DrinkersComponent,
     ModificationComponent,
+    QueryInterfaceComponent,
+    PatternsComponent,
   ],
   imports: [
     BrowserModule,

@@ -40,7 +40,6 @@ export class DrinkerDetailsComponent implements OnInit {
           const ids = [];
 
           data.forEach(transaction => {
-            console.log(transaction.id + " " + transaction.total)
             ids.push(transaction.id)
             totals.push(transaction.total)
           })

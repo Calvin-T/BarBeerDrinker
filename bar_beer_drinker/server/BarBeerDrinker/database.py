@@ -284,3 +284,95 @@ def get_top_drinkers_for_beer(name):
         rs = con.execute(query, name = name)
         results = [dict(row) for row in rs]
         return results
+
+def testQuery(queryInput):
+    with engine.connect() as con:
+        query = sql.text(queryInput)
+        rs = con.execute(query)
+        results = [dict(row) for row in rs]
+        #print "hi"
+        #num_of_keys = len(results[0])
+        #arr_of_keys = []
+        #for k in results[0]:
+        #    arr_of_keys.append(k)
+        #results.append(arr_of_keys)
+        return results
+
+def tryBeerModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryBarModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryDrinkerModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def trySellModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryFrequentModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryLikeModify(queryInput):
+    with engine.connect() as con:
+
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryTotalModify(queryInput):
+    with engine.connect() as con:
+ 
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+
+def tryTranModify(queryInput):
+    with engine.connect() as con:
+  
+        query = sql.text( queryInput )
+        rs = con.execute(query)
+        return "true"
+       
+def patternOne():
+    with engine.connect() as con:
+        query = sql.text( 
+            'select frequents.drinker as drinker, frequents.bar as bar, drinkers.city as drinkerCity, bars.City as barCity \
+            from frequents, drinkers, bars \
+            where frequents.drinker = drinkers.drinker AND frequents.bar = bars.BarName AND drinkers.city = bars.city' 
+         )
+        rs = con.execute(query)
+        results = [dict(row) for row in rs]
+        return results
+
+def patternTwo():
+    with engine.connect() as con:
+        query = sql.text( 
+            'select id, ttime, open, close \
+            from transactions, bars \
+            where transactions.ttime > bars.open AND transactions.ttime < bars.close and transactions.bar = bars.BarName \
+            group by id'
+         )
+        rs = con.execute(query)
+        results = [dict(row) for row in rs]
+        return results

@@ -13,33 +13,35 @@ export interface BeerLocation {
 })
 export class BeersService {
 
+  url = 'https://c274683.herokuapp.com'
+
   constructor(private http: HttpClient) { }
 
   getBeers(){
-    return this.http.get<any[]>('/api/beers');
+    return this.http.get<any[]>(this.url + '/api/beers');
   }
 
   getBarsSelling(beer: String){
-    return this.http.get<BeerLocation[]>('/api/beers/' + beer)
+    return this.http.get<BeerLocation[]>(this.url +'/api/beers/' + beer)
   }
 
   getManfs(beer?: String): any{
     if(beer){
-      return this.http.get<string>('api/manufacturer/'+beer)
+      return this.http.get<string>(this.url +'api/manufacturer/'+beer)
     }
-    return this.http.get<string[]>('api/manufacturer')
+    return this.http.get<string[]>(this.url +'api/manufacturer')
   }
 
   getMostPopularBar(beer: string){
-    return this.http.get<any[]>('/api/beers/' + beer + '/most_popular_bars')
+    return this.http.get<any[]>(this.url +'/api/beers/' + beer + '/most_popular_bars')
   }
 
   getTopDrinkers(beer: string){
-    return this.http.get<any[]>('/api/beers/' + beer + '/top_drinkers')
+    return this.http.get<any[]>(this.url +'/api/beers/' + beer + '/top_drinkers')
   }
 
   getMostPopularTimes(beer: string){
-    return this.http.get<any[]>('/api/beers/' + beer + '/most_popular_times')
+    return this.http.get<any[]>(this.url +'/api/beers/' + beer + '/most_popular_times')
   }
 
 }
